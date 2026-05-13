@@ -242,9 +242,6 @@ const Footer = () => {
                     <p className="mh-footer-copy">
                         © {year} — Designed & Developed by <span>Muhammad Hammad</span>
                     </p>
-                    <p className="mh-footer-made">
-                        Built with React · Laravel · TypeScript
-                    </p>
                 </div>
             </footer>
         </>

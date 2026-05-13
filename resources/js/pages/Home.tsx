@@ -1,7 +1,9 @@
 import { Head } from '@inertiajs/react';
 import { useEffect, useRef, useState } from 'react';
+import Experience from '@/components/Experience';
 import FeaturedProject from '@/components/FeaturedProject';
 import Footer from '@/components/Footer';
+import HappyClient from '@/components/HappyClient';
 import Navbar from '@/components/Navbar';
 import SkillSection from '@/components/SkillSection';
 
@@ -513,6 +515,10 @@ export default function Home() {
             <SkillSection />
 
             <FeaturedProject />
+            
+            <Experience />
+
+            <HappyClient />
 
             <section id="contact" className="mh-contact">
                 <FadeIn>
