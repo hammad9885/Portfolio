@@ -1,9 +1,9 @@
 import { Head } from '@inertiajs/react';
 import { useEffect, useRef, useState } from 'react';
-import FeaturedProject from '@/Components/FeaturedProject';
-import Footer from '@/Components/Footer';
-import Navbar from '@/Components/Navbar';
-import SkillSection from '@/Components/SkillSection';
+import FeaturedProject from '@/components/FeaturedProject';
+import Footer from '@/components/Footer';
+import Navbar from '@/components/Navbar';
+import SkillSection from '@/components/SkillSection';
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => {
     const ref = useRef<HTMLDivElement>(null);
@@ -379,7 +379,6 @@ export default function Home() {
                     transform: translateY(-2px);
                 }
 
-                /* ── Shared animations ── */
                 @keyframes fadeUp {
                     from { opacity: 0; transform: translateY(20px); }
                     to   { opacity: 1; transform: translateY(0); }
@@ -399,7 +398,6 @@ export default function Home() {
 
             <Navbar />
 
-            {/* ── HERO ── */}
             <section className="mh-hero">
                 <div className="mh-hero-inner">
                     <div className="mh-hero-tag">
@@ -494,13 +492,10 @@ export default function Home() {
                 </FadeIn>
             </section>
 
-            {/* ── SKILLS ── */}
             <SkillSection />
 
-            {/* ── PROJECTS ── */}
             <FeaturedProject />
 
-            {/* ── CONTACT ── */}
             <section id="contact" className="mh-contact">
                 <FadeIn>
                     <p className="mh-section-tag">// get in touch</p>
@@ -514,15 +509,37 @@ export default function Home() {
                         <p className="mh-email">mrhammadghg@gmail.com</p>
                         <div className="mh-social-links">
                             {[
-                                { icon: 'ti-brand-github',   label: 'GitHub' },
-                                { icon: 'ti-brand-linkedin', label: 'LinkedIn' },
-                                { icon: 'ti-brand-whatsapp', label: 'WhatsApp' },
-                                { icon: 'ti-mail',           label: 'Email' },
+                                {
+                                    icon: 'ti-brand-github',
+                                    label: 'GitHub',
+                                    href: 'https://github.com/hammad9885',
+                                },
+                                {
+                                    icon: 'ti-brand-linkedin',
+                                    label: 'LinkedIn',
+                                    href: 'https://www.linkedin.com/in/muhammad-hammad-dev/',
+                                },
+                                {
+                                    icon: 'ti-brand-whatsapp',
+                                    label: 'WhatsApp',
+                                    href: 'https://wa.me/923476789885',
+                                },
+                                {
+                                    icon: 'ti-mail',
+                                    label: 'Email',
+                                    href: 'https://mail.google.com/mail/?view=cm&fs=1&to=mrhammadghg@gmail.com&su=Project%20Inquiry%20%7C%20Muhammad%20Hammad&body=Hi%20Muhammad%20Hammad%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20potential%20opportunity%20with%20you.%0A%0AProject%20Details%3A%0A-%20%0A%0ALooking%20forward%20to%20hearing%20from%20you.%0A%0ARegards%2C',
+                                },
                             ].map((s) => (
-                                <button key={s.label} className="mh-social-btn">
+                                <a
+                                    key={s.label}
+                                    href={s.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="mh-social-btn"
+                                >
                                     <i className={`ti ${s.icon}`} aria-hidden="true" />
                                     {s.label}
-                                </button>
+                                </a>
                             ))}
                         </div>
                         <button className="mh-btn-primary" onClick={() => {}}>

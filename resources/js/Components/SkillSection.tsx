@@ -50,7 +50,7 @@ const SkillSection = () => {
             },
             { threshold: 0.2 }
         );
-        
+
         if (sectionRef.current) {
             observer.observe(sectionRef.current);
         }
@@ -197,7 +197,6 @@ const SkillSection = () => {
                     Skills &<br />Technologies.
                 </h2>
 
-                {/* Core Proficiency Bars */}
                 <div className="mh-core-card">
                     <p className="mh-core-label">Core Proficiency</p>
                     {coreBars.map((bar) => (
@@ -216,7 +215,6 @@ const SkillSection = () => {
                     ))}
                 </div>
 
-                {/* Category Cards */}
                 <div className="mh-cats-grid">
                     {categories.map((cat) => (
                         <div key={cat.title} className={`mh-cat-card${animated ? ' visible' : ''}`}>
