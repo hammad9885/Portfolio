@@ -226,6 +226,11 @@ const Footer = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="mh-footer-social"
+                                        style={{
+                                            background: 'none',
+                                            border: 'none',
+                                            padding: 0,
+                                        }}
                                     >
                                         <span className="mh-footer-social-icon">
                                             <i className={`ti ${s.icon}`} aria-hidden="true" />

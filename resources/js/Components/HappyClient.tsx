@@ -30,7 +30,7 @@ const HappyClient = () => {
     }, []);
 
     return (
-        <section className="hc-section">
+        <section className="hc-section" id="happyClients">
             <style>{`
                 .hc-section {
                     border-top: 1px solid #1e293b;

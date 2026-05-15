@@ -9,7 +9,7 @@ const Navbar = () => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 40);
 
-            const sections = ['about', 'skills', 'projects', 'contact'];
+            const sections = ['about', 'skills', 'projects', 'contact', 'happyClients', 'experience'];
 
             for (const id of sections) {
                 const el = document.getElementById(id);
@@ -47,6 +47,8 @@ const Navbar = () => {
         { label: 'About', id: 'about' },
         { label: 'Skills', id: 'skills' },
         { label: 'Projects', id: 'projects' },
+        { label: 'Experience', id: 'experience'  },
+        { label: 'Happy Clients', id: 'happyClients' },
         { label: 'Contact', id: 'contact' },
     ];
 

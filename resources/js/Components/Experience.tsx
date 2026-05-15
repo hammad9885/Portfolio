@@ -2,11 +2,48 @@ const Experience = () => {
     return (
         <section id="experience" className="exp-section">
             <style>{`
+            .mh-section-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--neon);
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    margin-bottom: 0.85rem;
+    opacity: 0.9;
+}
+
+.mh-glow-line {
+    width: 50px;
+    height: 2px;
+    background: var(--neon);
+    margin-bottom: 1.25rem;
+    position: relative;
+    border-radius: 2px;
+}
+
+.mh-glow-line::after {
+    content: '';
+    position: absolute;
+    inset: -2px -8px;
+    background: rgba(0, 245, 196, 0.25);
+    filter: blur(6px);
+    border-radius: 4px;
+}
+
+.mh-section-title {
+    font-size: clamp(1.75rem, 4.5vw, 2.6rem);
+    font-weight: 800;
+    margin-bottom: 1.75rem;
+    line-height: 1.18;
+    color: var(--text);
+    letter-spacing: -0.5px;
+}
                 .exp-section {
                     padding: 4rem 2rem;
                     max-width: 1000px;
                     margin: 0 auto;
                     color: #e2e8f0;
+                    border-top: 1px solid #1a2332;
                 }
 
                 .exp-title {
@@ -67,18 +104,23 @@ const Experience = () => {
                 }
             `}</style>
 
-            <h2 className="exp-title">Experience</h2>
+            <p className="mh-section-tag">// Selected Experience</p>
 
+            <div className="mh-glow-line" />
+            <h2 className="mh-section-title">Experience</h2>
             <div className="exp-grid">
-
                 <div className="exp-card">
-                    <div className="exp-role">Full Stack Developer (Current)</div>
+                    <div className="exp-role">
+                        Full Stack Developer (Current)
+                    </div>
                     <div className="exp-company">Tecno Sphere</div>
                     <div className="exp-meta">05/2026 – Present | Pakistan</div>
                     <p className="exp-desc">
-                        Working as a Full Stack Developer building scalable ERP systems using
-                        React.js , Redux ,Node js, Express js or mongoDB. Responsible for developing reusable components,
-                        integrating REST APIs, and improving system performance and UX.
+                        Working as a Full Stack Developer building scalable ERP
+                        systems using React.js , Redux ,Node js, Express js or
+                        mongoDB. Responsible for developing reusable components,
+                        integrating REST APIs, and improving system performance
+                        and UX.
                     </p>
                 </div>
 
@@ -87,9 +129,9 @@ const Experience = () => {
                     <div className="exp-company">ITS Tech World</div>
                     <div className="exp-meta">12/2025 - 04/2026 </div>
                     <p className="exp-desc">
-                        Developed ERP management system UI using React (TSX) and Redux.
-                        Integrated APIs and built responsive dashboards for business data
-                        management and workflows.
+                        Developed ERP management system UI using React (TSX) and
+                        Redux. Integrated APIs and built responsive dashboards
+                        for business data management and workflows.
                     </p>
                 </div>
 
@@ -98,23 +140,26 @@ const Experience = () => {
                     <div className="exp-company">Adroit Light Solutions</div>
                     <div className="exp-meta">04/2025 – 12/2025</div>
                     <p className="exp-desc">
-                        Built responsive web interfaces using React.js, Next.js, Php, Laravel or MySql.
-                        Focused on performance optimization, UI consistency, and modern
-                        frontend architecture.
+                        Built responsive web interfaces using React.js, Next.js,
+                        Php, Laravel or MySql. Focused on performance
+                        optimization, UI consistency, and modern frontend
+                        architecture.
                     </p>
                 </div>
 
                 <div className="exp-card">
-                    <div className="exp-role">Freelance Full Stack Developer (Current)</div>
+                    <div className="exp-role">
+                        Freelance Full Stack Developer (Current)
+                    </div>
                     <div className="exp-company">Self-Employed</div>
                     <div className="exp-meta">1+ Year Experience</div>
                     <p className="exp-desc">
-                        Delivered multiple client projects including business websites,
-                        dashboards, and Next.js applications. Specialized in React, Tailwind,
-                        API integration, and responsive UI development.
+                        Delivered multiple client projects including business
+                        websites, dashboards, and Next.js applications.
+                        Specialized in React, Tailwind, API integration, and
+                        responsive UI development.
                     </p>
                 </div>
-
             </div>
         </section>
     );
