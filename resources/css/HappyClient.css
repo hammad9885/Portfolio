@@ -1,10 +1,9 @@
 .hc-section {
-    border-top: 1px solid #1e293b;
-    padding: 6rem 2.5rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    padding: 0rem 2.5rem;
 }
 .hc-header {
+    padding-top: 2rem;
+    border-top: 1px solid #1e293b;
     margin-bottom: 3rem;
 }
 .hc-tag {

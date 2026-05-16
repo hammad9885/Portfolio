@@ -1,8 +1,6 @@
 .mh-footer {
     border-top: 1px solid #1e293b;
     padding: 3rem 2.5rem 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
 }
 .mh-footer-grid {
     display: grid;

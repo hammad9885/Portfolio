@@ -43,7 +43,7 @@ body {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    padding: 8rem 2.5rem 4rem;
+    padding: 6rem 2.5rem 4rem;
 }
 
 .mh-hero::before {
@@ -53,7 +53,11 @@ body {
     right: -180px;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(0, 245, 196, 0.06) 0%, transparent 68%);
+    background: radial-gradient(
+        circle,
+        rgba(0, 245, 196, 0.06) 0%,
+        transparent 68%
+    );
     pointer-events: none;
     animation: floatA 9s ease-in-out infinite;
 }
@@ -65,23 +69,35 @@ body {
     left: -100px;
     width: 520px;
     height: 520px;
-    background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 68%);
+    background: radial-gradient(
+        circle,
+        rgba(124, 58, 237, 0.08) 0%,
+        transparent 68%
+    );
     pointer-events: none;
     animation: floatB 11s ease-in-out infinite;
 }
 
 @keyframes floatA {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50%       { transform: translate(-24px, 24px) scale(1.04); }
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(-24px, 24px) scale(1.04);
+    }
 }
 @keyframes floatB {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50%       { transform: translate(24px, -24px) scale(1.04); }
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(24px, -24px) scale(1.04);
+    }
 }
 
 .mh-hero-inner {
-    max-width: 1000px;
-    margin: 0 auto;
     width: 100%;
 }
 
@@ -159,8 +175,9 @@ body {
     text-transform: uppercase;
     cursor: pointer;
     font-family: 'Space Mono', monospace;
-    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
-                box-shadow 0.25s ease;
+    transition:
+        transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.25s ease;
     position: relative;
     overflow: hidden;
 }
@@ -199,7 +216,10 @@ body {
     text-transform: uppercase;
     cursor: pointer;
     font-family: 'Space Mono', monospace;
-    transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    transition:
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
 }
 
 .mh-btn-ghost:hover {
@@ -262,26 +282,42 @@ body {
 }
 
 @keyframes scrollAnim {
-    0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
-    48%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
-    50%  { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
-    100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+    0% {
+        transform: scaleY(0);
+        transform-origin: top;
+        opacity: 1;
+    }
+    48% {
+        transform: scaleY(1);
+        transform-origin: top;
+        opacity: 1;
+    }
+    50% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+        opacity: 1;
+    }
+    100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+        opacity: 0;
+    }
 }
 
 /* ── About ── */
 .mh-about {
-    border-top: 1px solid var(--border);
-    padding: 6rem 2.5rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    padding: 0rem 2.5rem;
+    width: 100%;
 }
 
 .mh-section-tag {
+    border-top: 1px solid var(--border);
     font-family: 'Space Mono', monospace;
     font-size: 0.65rem;
     color: var(--neon);
     letter-spacing: 3.5px;
     text-transform: uppercase;
+    padding-top: 2rem;
     margin-bottom: 0.85rem;
     opacity: 0.9;
 }
@@ -340,7 +376,9 @@ body {
     border: 1px solid var(--border);
     border-radius: 14px;
     padding: 1.6rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .mh-about-card:hover {
@@ -387,10 +425,7 @@ body {
 
 /* ── Contact ── */
 .mh-contact {
-    border-top: 1px solid var(--border);
-    padding: 6rem 2.5rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    padding: 2rem 2.5rem;
 }
 
 .mh-contact-box {
@@ -413,7 +448,11 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(0, 245, 196, 0.04) 0%, transparent 55%);
+    background: radial-gradient(
+        ellipse at 50% 0%,
+        rgba(0, 245, 196, 0.04) 0%,
+        transparent 55%
+    );
     pointer-events: none;
 }
 
@@ -470,8 +509,11 @@ body {
     font-family: 'Syne', sans-serif;
     font-weight: 600;
     text-decoration: none;
-    transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease,
-                background 0.25s ease;
+    transition:
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        background 0.25s ease;
 }
 
 .mh-footer-social:hover {
@@ -511,8 +553,9 @@ body {
     text-transform: uppercase;
     cursor: pointer;
     font-family: 'Space Mono', monospace;
-    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
-                box-shadow 0.25s ease;
+    transition:
+        transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.25s ease;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -540,8 +583,15 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%       { opacity: 0.3; transform: scale(0.85); }
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(0.85);
+    }
 }
 
 /* ── Responsive ── */
@@ -568,7 +618,7 @@ body {
 
     .mh-about,
     .mh-contact {
-        padding: 4.5rem 1.5rem;
+        padding: 0rem 1.5rem;
     }
 
     .mh-contact-box {
@@ -616,7 +666,7 @@ body {
 
     .mh-about,
     .mh-contact {
-        padding: 4rem 1.25rem;
+        padding: 0rem 1.25rem;
     }
 
     .mh-contact-box {
