@@ -10,6 +10,16 @@
 
         @fonts
 
+        {{-- Fonts + Icons: parallel load --}}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+        {{-- FOUC rokne ke liye --}}
+        <style>body { visibility: hidden; }</style>
+        <script>document.fonts.ready.then(() => document.body.style.visibility = 'visible');</script>
+
         @viteReactRefresh
         @vite(['resources/css/app.css', 'resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
         <x-inertia::head>
