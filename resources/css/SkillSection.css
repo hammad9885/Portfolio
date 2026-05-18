@@ -1,22 +1,26 @@
 .mh-skills {
     padding: 2rem 2.5rem;
-    color: #f0f4f8;
-    
+    color: var(--text);
 }
+
+/* ───────── Heading ───────── */
 
 .mh-heading {
     margin-bottom: 2rem;
 }
 
 .mh-tag {
-    border-top: 1px solid #1a2332;
+    border-top: 1px solid var(--border);
     padding-top: 2rem;
-    color: #00f5c4;
+    color: var(--neon);
+
     font-size: 0.65rem;
     letter-spacing: 3.5px;
     text-transform: uppercase;
+
     margin-bottom: 1rem;
     display: block;
+
     font-family: 'Space Mono', monospace;
     opacity: 0.9;
 }
@@ -24,12 +28,15 @@
 .mh-title {
     font-size: clamp(1.75rem, 4.5vw, 2.6rem);
     font-weight: 800;
-    margin-bottom: 0;
     line-height: 1.18;
-    color: #edf2f7;
     letter-spacing: -0.5px;
+
+    color: var(--text);
+
     font-family: 'Syne', sans-serif;
 }
+
+/* ───────── Layout ───────── */
 
 .mh-layout {
     display: grid;
@@ -38,131 +45,230 @@
     align-items: start;
 }
 
-/* ── Sidebar ── */
+/* ───────── Sidebar ───────── */
+
 .mh-sidebar {
     display: flex;
     flex-direction: column;
     gap: 0.85rem;
+
     position: sticky;
     top: 84px;
 }
 
 .mh-tab-btn {
-    background: #0d0d18;
-    border: 1px solid #1a2332;
-    color: #5a6a80;
+    background: var(--bg2);
+
+    border: 1px solid var(--border);
+
+    color: var(--muted);
+
     padding: 1rem 1.25rem;
-    border-radius: 12px;
+
+    border-radius: 14px;
+
     font-size: 0.95rem;
     font-weight: 600;
+
     text-align: left;
+
     cursor: pointer;
+
     font-family: 'Syne', sans-serif;
-    transition: border-color 0.28s ease,
-                color 0.28s ease,
-                background 0.28s ease,
-                transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
-                box-shadow 0.28s ease;
+
+    transition:
+        border-color 0.28s ease,
+        color 0.28s ease,
+        background 0.28s ease,
+        transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.28s ease;
 }
 
 .mh-tab-btn:hover {
-    border-color: rgba(0, 245, 196, 0.25);
-    color: #c8d8e8;
+    border-color: rgba(23, 192, 253, 0.35);
+
+    color: var(--text);
+
+    background: rgba(23, 192, 253, 0.06);
+
     transform: translateX(4px);
 }
 
 .mh-tab-btn.active {
-    background: rgba(0, 245, 196, 0.07);
-    border-color: rgba(0, 245, 196, 0.5);
-    color: #edf2f7;
+    background: linear-gradient(
+        135deg,
+        rgba(23, 192, 253, 0.12),
+        rgba(124, 58, 237, 0.08)
+    );
+
+    border-color: rgba(23, 192, 253, 0.45);
+
+    color: var(--text);
+
     transform: translateX(5px);
-    box-shadow: 0 4px 20px rgba(0, 245, 196, 0.08);
+
+    box-shadow:
+        0 10px 30px rgba(23, 192, 253, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-/* ── Content Panel ── */
+/* ───────── Content ───────── */
+
 .mh-content {
-    background: #0d0d18;
-    border: 1px solid #1a2332;
-    border-radius: 18px;
+    background: var(--bg2);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
     padding: 2.25rem;
-    animation: panelFadeIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+
     min-width: 0;
+
+    animation: panelFadeIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .mh-content-title {
     font-size: 1.35rem;
     margin-bottom: 2rem;
-    color: #00f5c4;
+    color: var(--neon);
     font-weight: 700;
-    font-family: 'Syne', sans-serif;
     letter-spacing: -0.2px;
+    font-family: 'Syne', sans-serif;
 }
 
-/* ── Skill Items ── */
+/* ───────── Skills ───────── */
+
 .mh-skill-item {
-    margin-bottom: 1.6rem;
+    margin-bottom: 1.7rem;
+
     animation: skillFadeUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
-
-.mh-skill-item:nth-child(2) { animation-delay: 0.04s; }
-.mh-skill-item:nth-child(3) { animation-delay: 0.08s; }
-.mh-skill-item:nth-child(4) { animation-delay: 0.12s; }
-.mh-skill-item:nth-child(5) { animation-delay: 0.16s; }
-.mh-skill-item:nth-child(6) { animation-delay: 0.20s; }
 
 .mh-skill-item:last-child {
     margin-bottom: 0;
 }
 
+.mh-skill-item:nth-child(2) {
+    animation-delay: 0.04s;
+}
+
+.mh-skill-item:nth-child(3) {
+    animation-delay: 0.08s;
+}
+
+.mh-skill-item:nth-child(4) {
+    animation-delay: 0.12s;
+}
+
+.mh-skill-item:nth-child(5) {
+    animation-delay: 0.16s;
+}
+
+.mh-skill-item:nth-child(6) {
+    animation-delay: 0.2s;
+}
+
 .mh-skill-header {
     display: flex;
+
     justify-content: space-between;
+
     align-items: baseline;
-    margin-bottom: 9px;
-    font-size: 0.88rem;
+
+    margin-bottom: 10px;
+
+    font-size: 0.9rem;
+
     font-weight: 600;
-    color: #c8d8e8;
+
+    color: var(--text);
+
     font-family: 'Syne', sans-serif;
 }
 
 .mh-skill-header span:last-child {
     font-family: 'Space Mono', monospace;
+
     font-size: 0.72rem;
-    color: rgba(0, 245, 196, 0.75);
-    font-weight: 400;
+
+    color: var(--neon);
+
+    opacity: 0.85;
+
+    font-weight: 500;
 }
+
+/* ───────── Progress ───────── */
 
 .mh-progress-track {
     width: 100%;
-    height: 5px;
-    background: #1a2332;
+    height: 7px;
+    background: var(--border);
     border-radius: 999px;
     overflow: hidden;
+    position: relative;
 }
 
 .mh-progress-fill {
     height: 100%;
     border-radius: 999px;
-    background: linear-gradient(90deg, #00f5c4 0%, #7c3aed 100%);
+    background: linear-gradient(90deg, var(--neon) 0%, var(--neon2) 100%);
+    box-shadow: 0 0 16px rgba(23, 192, 253, 0.25);
     animation: progressGrow 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     transform-origin: left;
 }
 
+/* ───────── Animations ───────── */
+
 @keyframes progressGrow {
-    from { width: 0 !important; }
+    from {
+        width: 0 !important;
+    }
 }
 
 @keyframes panelFadeIn {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes skillFadeUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* ── Responsive ── */
+/* ───────── Light Mode Extra ───────── */
+
+[data-theme='light'] .mh-content {
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme='light'] .mh-tab-btn.active {
+    background: linear-gradient(
+        135deg,
+        rgba(14, 165, 233, 0.12),
+        rgba(124, 58, 237, 0.08)
+    );
+}
+
+/* ───────── Responsive ───────── */
+
 @media (max-width: 860px) {
     .mh-skills {
         padding: 2rem 2rem;

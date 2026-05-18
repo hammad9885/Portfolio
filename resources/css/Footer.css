@@ -1,130 +1,90 @@
 .mh-footer {
-    border-top: 1px solid #1e293b;
-    padding: 3rem 2.5rem 2rem;
+    width: 100%;
+    border-top: 1px solid var(--border);
+    padding: 26px 40px;
+    background: var(--bg);
+    box-sizing: border-box;
 }
-.mh-footer-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
-    margin-bottom: 2.5rem;
-}
-.mh-footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-.mh-footer-logo {
-    font-family: 'Space Mono', monospace;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #00f5c4;
-    letter-spacing: 2px;
-}
-.mh-footer-tagline {
-    font-size: 0.82rem;
-    color: #64748b;
-    line-height: 1.6;
-    max-width: 220px;
-}
-.mh-footer-heading {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #00f5c4;
-    margin-bottom: 1rem;
-}
-.mh-footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.mh-footer-link-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 0.82rem;
-    color: #64748b;
-    text-align: left;
-    padding: 0;
-    transition: color 0.2s;
-    font-family: 'Syne', sans-serif;
-}
-.mh-footer-link-btn:hover {
-    color: #e2e8f0;
-}
-.mh-footer-socials {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-}
-.mh-footer-social {
+
+.mh-footer-content {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 0.82rem;
-    color: #64748b;
-    text-decoration: none;
-    transition: color 0.2s;
-    cursor: pointer;
+    justify-content: space-between;
+    gap: 20px;
 }
-.mh-footer-social:hover {
-    color: #00f5c4;
+
+.mh-footer-left p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.6;
 }
-.mh-footer-social-icon {
-    width: 28px;
-    height: 28px;
-    background: #1e1e2a;
-    border: 1px solid #1e293b;
-    border-radius: 6px;
+
+.mh-footer-left span {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.mh-footer-socials {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mh-footer .mh-footer-social {
+    all: unset;
+    box-sizing: border-box;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border) !important;
+    background: transparent !important;
+    color: var(--muted) !important;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
-    transition: border-color 0.2s;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    text-decoration: none;
+    flex-shrink: 0;
 }
-.mh-footer-social:hover .mh-footer-social-icon {
-    border-color: rgba(0, 245, 196, 0.3);
+
+.mh-footer .mh-footer-social:hover {
+    color: var(--neon) !important;
+    border-color: var(--neon) !important;
+    background: transparent !important;
+    transform: translateY(-2px); 
+ }
+
+.mh-footer .mh-footer-social:focus,
+.mh-footer .mh-footer-social:active {
+    background: transparent !important;
+    outline: none;
+    box-shadow: none;
 }
-.mh-footer-bottom {
-    border-top: 1px solid #1e293b;
-    padding-top: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-}
-.mh-footer-copy {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.72rem;
-    color: #64748b;
-}
-.mh-footer-copy span {
-    color: #00f5c4;
-}
-.mh-footer-made {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.68rem;
-    color: #3f4f63;
-    letter-spacing: 1px;
-}
+
 @media (max-width: 768px) {
-    .mh-footer-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-    .mh-footer-brand {
-        grid-column: 1 / -1;
-    }
-}
-@media (max-width: 480px) {
-    .mh-footer-grid {
-        grid-template-columns: 1fr;
-    }
     .mh-footer {
-        padding: 2.5rem 1.5rem 1.5rem;
+        padding: 22px 20px 70px;
+    }
+
+    .mh-footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .mh-footer-left p {
+        font-size: 13px;
+    }
+
+    .mh-footer-socials {
+        gap: 10px;
+    }
+
+    .mh-footer .mh-footer-social {
+        width: 34px;
+        height: 34px;
     }
 }

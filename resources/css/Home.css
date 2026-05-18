@@ -9,19 +9,65 @@
     box-sizing: border-box;
 }
 
-:root {
-    --bg: #080810;
+[data-theme='light'] .mh-contact-box,
+[data-theme='light'] .mh-about-card {
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.05);
+}
+[data-theme='light'] .mh-hero::before {
+    background: radial-gradient(
+        circle,
+        rgba(14, 165, 233, 0.12) 0%,
+        transparent 68%
+    );
+}
+
+[data-theme='light'] .mh-hero::after {
+    background: radial-gradient(
+        circle,
+        rgba(124, 58, 237, 0.08) 0%,
+        transparent 68%
+    );
+}
+/* :root {
+    --bg: #050816;
     --bg2: #0d0d18;
     --bg3: #131320;
     --bg4: #1a1a28;
-    --neon: #00f5c4;
+    --neon: #17C0FD;
     --neon2: #7c3aed;
     --text: #edf2f7;
     --muted: #5a6a80;
     --border: #1a2332;
     --card-bg: rgba(13, 13, 24, 0.85);
+} */
+
+:root {
+    --bg: #050816;
+    --bg2: #0d0d18;
+    --bg3: #131320;
+    --bg4: #1a1a28;
+    --neon: #17C0FD;
+    --neon2: #7c3aed;
+    --text: #edf2f7;
+    --muted: #94a3b8;
+    --border: #1a2332;
+    --card-bg: rgba(13, 13, 24, 0.85);
 }
 
+/* LIGHT MODE */
+[data-theme='light'] {
+    --bg: #f5f7fb;
+    --bg2: #ffffff;
+    --bg3: #ffffff;
+    --bg4: #f1f5f9;
+    --neon: #0ea5e9;
+    --neon2: #7c3aed;
+    --text: #0f172a;
+    --muted: #475569;
+    --border: #dbe4ee;
+    --card-bg: rgba(255, 255, 255, 0.92);
+}
 html {
     scroll-behavior: smooth;
 }
@@ -33,8 +79,16 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    transition:
+        background 0.35s ease,
+        color 0.35s ease;
 }
-
+* {
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease;
+}
 /* ── Hero ── */
 .mh-hero {
     min-height: 100vh;

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+
 import '../../css/FeaturedProject.css';
 
 interface Project {
@@ -8,53 +9,59 @@ interface Project {
     description: string;
     techs: string[];
     link?: string;
+    github?: string;
 }
 
 const projects: Project[] = [
     {
         num: '01',
-        type: 'Web App',
-        title: 'E-Commerce Platform',
+        type: 'Corporate Website',
+        title: 'Mood Analytica',
         description:
-            'Full-stack online store with product catalog, shopping cart, payment gateway, admin dashboard, and real-time order tracking.',
-        techs: ['Next.js', 'Node.js', 'MongoDB', 'Redux'],
-        link: '#',
+            'Professional business website built for service showcasing, client engagement, and lead generation. Includes modern UI and contact management system.',
+        techs: ['Next.js', 'CodeIgniter', 'MySQL'],
+        link: 'https://moodsanalytica.com/',
+        github: 'https://github.com/hammad9885',
     },
     {
         num: '02',
-        type: 'SaaS',
-        title: 'Task Management App',
+        type: 'IT Services Website',
+        title: 'Techizh Solutions',
         description:
-            'Real-time collaborative productivity tool with drag-and-drop Kanban boards, team roles, and analytics dashboard.',
-        techs: ['React', 'Express.js', 'MySQL', 'TypeScript'],
-        link: '#',
+            'Company profile website for IT services presentation, client inquiries, and portfolio showcasing with admin-managed content structure.',
+        techs: ['Next.js', 'CodeIgniter', 'MySQL'],
+        link: 'https://techizh.com',
+        github: 'https://github.com/hammad9885',
     },
     {
         num: '03',
-        type: 'CMS',
-        title: 'Blog & CMS System',
+        type: 'Enterprise System',
+        title: 'ERP System (Internal Project)',
         description:
-            'Feature-rich content management system with role-based auth, media uploads, rich-text editor, and built-in SEO tools.',
-        techs: ['Laravel', 'PHP', 'MySQL', 'Tailwind CSS'],
+            'Business management ERP system for handling operations, workflows, and internal business processes with structured modules.',
+        techs: ['React', 'PHP', 'laravel', 'MySQL'],
         link: '#',
+        github: '#',
     },
     {
         num: '04',
-        type: 'API / Backend',
-        title: 'REST API Backend',
+        type: 'Backend API',
+        title: 'REST API Services',
         description:
-            'Scalable RESTful API with JWT authentication, rate limiting, Swagger documentation, and automated test coverage.',
-        techs: ['Node.js', 'Express', 'MongoDB', 'JWT'],
+            'Scalable backend APIs for web applications with authentication, secure routing, and database integration.',
+        techs: ['Node.js', 'Express', 'MySQL'],
         link: '#',
+        github: 'https://github.com/hammad9885',
     },
     {
         num: '05',
-        type: 'React + Laravel',
-        title: 'Full Stack App',
+        type: 'Full Stack App',
+        title: 'Business Dashboard System',
         description:
-            'Modern full-stack application with React JS frontend and Laravel backend, featuring authentication and CRUD operations.',
-        techs: ['React JS', 'Laravel', 'MySQL', 'Inertia.js'],
+            'Full-stack dashboard application for managing data, users, and business operations with role-based access.',
+        techs: ['React', 'Laravel', 'MySQL'],
         link: '#',
+        github: 'https://github.com/hammad9885',
     },
 ];
 
@@ -62,6 +69,7 @@ const FeaturedProject = () => {
     const sectionRef = useRef<HTMLElement>(null);
 
     const [visible, setVisible] = useState(false);
+
     const [activeProject, setActiveProject] = useState(0);
 
     useEffect(() => {
@@ -71,7 +79,9 @@ const FeaturedProject = () => {
                     setVisible(true);
                 }
             },
-            { threshold: 0.1 }
+            {
+                threshold: 0.1,
+            },
         );
 
         if (sectionRef.current) {
@@ -82,47 +92,38 @@ const FeaturedProject = () => {
     }, []);
 
     return (
-        <section
-            id="projects"
-            ref={sectionRef}
-            className="mh-projects"
-        >
+        <section id="projects" ref={sectionRef} className="mh-projects">
             <p className="mh-section-tag">// selected work</p>
 
             <div className="mh-glow-line" />
 
             <h2 className="mh-section-title">
-                Featured <br />
+                Featured
+                <br />
                 Projects.
             </h2>
 
             <div className="mh-projects-wrapper">
-                {/* LEFT SIDE BUTTONS */}
+                {/* Sidebar */}
+
                 <div className="mh-project-sidebar">
                     {projects.map((project, index) => (
                         <button
                             key={project.num}
                             className={`mh-project-tab ${
-                                activeProject === index
-                                    ? 'active'
-                                    : ''
+                                activeProject === index ? 'active' : ''
                             }`}
-                            onClick={() =>
-                                setActiveProject(index)
-                            }
+                            onClick={() => setActiveProject(index)}
                         >
                             {project.title}
                         </button>
                     ))}
                 </div>
 
-                {/* RIGHT SIDE CONTENT */}
+                {/* Content */}
+
                 <div className="mh-project-content">
-                    <div
-                        className={`mh-proj-card ${
-                            visible ? 'visible' : ''
-                        }`}
-                    >
+                    <div className={`mh-proj-card ${visible ? 'visible' : ''}`}>
                         <div className="mh-proj-meta">
                             <span className="mh-proj-num">
                                 {projects[activeProject].num}
@@ -138,32 +139,46 @@ const FeaturedProject = () => {
                         </h3>
 
                         <p className="mh-proj-desc">
-                            {
-                                projects[activeProject]
-                                    .description
-                            }
+                            {projects[activeProject].description}
                         </p>
 
                         <div className="mh-proj-techs">
-                            {projects[
-                                activeProject
-                            ].techs.map((tech) => (
-                                <span
-                                    key={tech}
-                                    className="mh-tech-badge"
-                                >
+                            {projects[activeProject].techs.map((tech) => (
+                                <span key={tech} className="mh-tech-badge">
                                     {tech}
                                 </span>
                             ))}
                         </div>
 
-                        <button className="mh-proj-link">
-                            <i
-                                className="ti ti-arrow-up-right"
-                                aria-hidden="true"
-                            />
-                            View Project
-                        </button>
+                        <div className="mh-proj-actions">
+                            <button
+                                className="mh-proj-link"
+                                onClick={() =>
+                                    projects[activeProject].link &&
+                                    window.open(
+                                        projects[activeProject].link,
+                                        '_blank',
+                                    )
+                                }
+                            >
+                                <i className="ti ti-world" />
+                                Live Preview
+                            </button>
+
+                            <button
+                                className="mh-proj-link"
+                                onClick={() =>
+                                    projects[activeProject].github &&
+                                    window.open(
+                                        projects[activeProject].github,
+                                        '_blank',
+                                    )
+                                }
+                            >
+                                <i className="ti ti-brand-github" />
+                                Source Code
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

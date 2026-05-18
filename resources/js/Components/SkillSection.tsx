@@ -15,10 +15,12 @@ const categories: SkillCategory[] = [
         title: 'Frontend',
         skills: [
             { name: 'HTML5 / CSS3', percent: 95 },
+            { name: 'Bootstrap', percent: 90 },
+            { name: 'Sass', percent: 87 },
+            { name: 'Tailwind CSS', percent: 94 },
             { name: 'JavaScript / TypeScript', percent: 92 },
             { name: 'React JS / Redux', percent: 90 },
             { name: 'Next.js', percent: 88 },
-            { name: 'Tailwind CSS', percent: 94 },
         ],
     },
     {

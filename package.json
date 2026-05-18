@@ -31,6 +31,7 @@
     "dependencies": {
         "@inertiajs/react": "^3.0.0",
         "@inertiajs/vite": "^3.0.0",
+        "@tabler/icons-react": "^3.44.0",
         "@tailwindcss/vite": "^4.1.11",
         "@types/react": "^19.2.0",
         "@types/react-dom": "^19.2.0",
@@ -41,6 +42,7 @@
         "framer-motion": "^12.38.0",
         "globals": "^15.14.0",
         "laravel-vite-plugin": "^3.1",
+        "lucide-react": "^1.16.0",
         "react": "^19.2.0",
         "react-dom": "^19.2.0",
         "tailwind-merge": "^3.0.1",

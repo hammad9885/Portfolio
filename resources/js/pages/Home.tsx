@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import HappyClient from '@/components/HappyClient';
 import Navbar from '@/components/Navbar';
 import SkillSection from '@/components/SkillSection';
-import "../../css/Home.css";
+import '../../css/Home.css';
 
 const downloadCV = () => {
     const link = document.createElement('a');
@@ -17,7 +17,13 @@ const downloadCV = () => {
     document.body.removeChild(link);
 };
 
-const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => {
+const FadeIn = ({
+    children,
+    delay = 0,
+}: {
+    children: React.ReactNode;
+    delay?: number;
+}) => {
     const ref = useRef<HTMLDivElement>(null);
     const [visible, setVisible] = useState(false);
 
@@ -28,7 +34,7 @@ const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
                     setVisible(true);
                 }
             },
-            { threshold: 0.12 }
+            { threshold: 0.12 },
         );
 
         if (ref.current) {
@@ -53,6 +59,11 @@ const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 };
 
 export default function Home() {
+    const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+
+    useEffect(() => {
+        document.body.setAttribute('data-theme', theme);
+    }, [theme]);
     const scrollTo = (id: string) =>
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
@@ -69,7 +80,7 @@ export default function Home() {
         } else {
             window.open(
                 `https://web.whatsapp.com/send?phone=923476789885&text=${encodedMessage}`,
-                '_blank'
+                '_blank',
             );
         }
     };
@@ -78,9 +89,7 @@ export default function Home() {
         <>
             <Head title="Muhammad Hammad — Full Stack Developer" />
 
-            
-
-            <Navbar />
+            <Navbar theme={theme} setTheme={setTheme} />
 
             <section className="mh-hero">
                 <div className="mh-hero-inner">
@@ -90,20 +99,28 @@ export default function Home() {
                     </div>
 
                     <h1>
-                        Muhammad<br />
+                        Muhammad
+                        <br />
                         <span>Hammad</span>
                     </h1>
 
                     <p className="mh-hero-sub">
-                        Full Stack Developer —{' '}
-                        <b>MERN Stack</b> specialist building scalable web applications with modern technologies.
+                        Full Stack Developer — <b>MERN Stack</b> specialist
+                        building scalable web applications with modern
+                        technologies.
                     </p>
 
                     <div className="mh-hero-btns">
-                        <button className="mh-btn-primary" onClick={() => scrollTo('projects')}>
+                        <button
+                            className="mh-btn-primary"
+                            onClick={() => scrollTo('projects')}
+                        >
                             View Projects
                         </button>
-                        <button className="mh-btn-ghost" onClick={() => scrollTo('contact')}>
+                        <button
+                            className="mh-btn-ghost"
+                            onClick={() => scrollTo('contact')}
+                        >
                             Hire Me
                         </button>
                     </div>
@@ -112,7 +129,7 @@ export default function Home() {
                         {[
                             { num: '15+', label: 'Technologies' },
                             { num: '50+', label: 'Projects Built' },
-                            { num: '3+',  label: 'Years Coding' },
+                            { num: '3+', label: 'Years Coding' },
                         ].map((s) => (
                             <div key={s.label}>
                                 <div className="mh-stat-num">{s.num}</div>
@@ -134,37 +151,80 @@ export default function Home() {
                     <div className="mh-glow-line" />
                     <div className="mh-about-grid">
                         <div>
-                            <h2 className="mh-section-title">Passionate<br />Developer.</h2>
+                            <h2 className="mh-section-title">
+                                Passionate
+                                <br />
+                                Developer.
+                            </h2>
                             <div className="mh-about-text">
                                 <p>
-                                    I am a <b>Full Stack Developer</b> who handles everything from frontend interfaces to backend APIs. I love writing clean, maintainable code and building fast, scalable applications.
+                                    I am a <b>Full Stack Developer</b> who
+                                    handles everything from frontend interfaces
+                                    to backend APIs. I love writing clean,
+                                    maintainable code and building fast,
+                                    scalable applications.
                                 </p>
                                 <p>
-                                    MERN stack is my core expertise, and I am equally comfortable working with <b>Laravel, Next.js, and TypeScript</b>. I follow best practices on every project.
+                                    MERN stack is my core expertise, and I am
+                                    equally comfortable working with{' '}
+                                    <b>Laravel, Next.js, and TypeScript</b>. I
+                                    follow best practices on every project.
                                 </p>
                                 <p>
-                                    Learning new technologies is a habit — I always stay <b>up-to-date</b> with the latest industry trends and tools.
+                                    Learning new technologies is a habit — I
+                                    always stay <b>up-to-date</b> with the
+                                    latest industry trends and tools.
                                 </p>
                             </div>
                         </div>
 
                         <div className="mh-about-card">
                             {[
-                                { icon: 'ti-user',         label: 'Full Name',  value: 'Muhammad Hammad' },
-                                { icon: 'ti-map-pin',      label: 'Location',   value: 'Gujranwala, Punjab, PK' },
-                                { icon: 'ti-briefcase',    label: 'Role',       value: 'Full Stack Developer' },
-                                { icon: 'ti-language',     label: 'Languages',  value: 'Urdu, English' },
-                                { icon: 'ti-circle-check', label: 'Status',     value: 'Open to Work ✦', highlight: true },
+                                {
+                                    icon: 'ti-user',
+                                    label: 'Full Name',
+                                    value: 'Muhammad Hammad',
+                                },
+                                {
+                                    icon: 'ti-map-pin',
+                                    label: 'Location',
+                                    value: 'Gujranwala, Punjab, PK',
+                                },
+                                {
+                                    icon: 'ti-briefcase',
+                                    label: 'Role',
+                                    value: 'Full Stack Developer',
+                                },
+                                {
+                                    icon: 'ti-language',
+                                    label: 'Languages',
+                                    value: 'Urdu, English',
+                                },
+                                {
+                                    icon: 'ti-circle-check',
+                                    label: 'Status',
+                                    value: 'Open to Work ✦',
+                                    highlight: true,
+                                },
                             ].map((item) => (
                                 <div key={item.label} className="mh-about-item">
                                     <div className="mh-about-icon">
-                                        <i className={`ti ${item.icon}`} aria-hidden="true" />
+                                        <i
+                                            className={`ti ${item.icon}`}
+                                            aria-hidden="true"
+                                        />
                                     </div>
                                     <div>
-                                        <div className="mh-about-label">{item.label}</div>
+                                        <div className="mh-about-label">
+                                            {item.label}
+                                        </div>
                                         <div
                                             className="mh-about-val"
-                                            style={item.highlight ? { color: '#00f5c4' } : undefined}
+                                            style={
+                                                item.highlight
+                                                    ? { color: '#00f5c4' }
+                                                    : undefined
+                                            }
                                         >
                                             {item.value}
                                         </div>
@@ -187,10 +247,14 @@ export default function Home() {
                     <div className="mh-glow-line" />
                     <div className="mh-contact-box">
                         <h2>
-                            Let's Build<br />
+                            Let's Build
+                            <br />
                             <span>Together.</span>
                         </h2>
-                        <p>Have a project idea or a freelance / full-time opportunity? I am available — let's talk!</p>
+                        <p>
+                            Have a project idea or a freelance / full-time
+                            opportunity? I am available — let's talk!
+                        </p>
                         <p className="mh-email">mrhammadghg@gmail.com</p>
                         <div className="mh-social-links">
                             {[
@@ -222,7 +286,10 @@ export default function Home() {
                                         className="mh-footer-social"
                                     >
                                         <span className="mh-footer-social-icon">
-                                            <i className={`ti ${s.icon}`} aria-hidden="true" />
+                                            <i
+                                                className={`ti ${s.icon}`}
+                                                aria-hidden="true"
+                                            />
                                         </span>
                                         {s.label}
                                     </button>
@@ -235,11 +302,14 @@ export default function Home() {
                                         className="mh-footer-social"
                                     >
                                         <span className="mh-footer-social-icon">
-                                            <i className={`ti ${s.icon}`} aria-hidden="true" />
+                                            <i
+                                                className={`ti ${s.icon}`}
+                                                aria-hidden="true"
+                                            />
                                         </span>
                                         {s.label}
                                     </a>
-                                )
+                                ),
                             )}
                         </div>
                         <button className="mh-cv-btn" onClick={downloadCV}>
