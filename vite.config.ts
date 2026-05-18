@@ -1,5 +1,4 @@
 import inertia from '@inertiajs/vite';
-import { wayfinder } from '@laravel/vite-plugin-wayfinder';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import laravel from 'laravel-vite-plugin';
@@ -13,12 +12,12 @@ export default defineConfig({
         strictPort: true,
 
         hmr: {
-            // host: '192.168.100.8',
             host: 'localhost',
             protocol: 'ws',
         },
+
         watch: {
-        usePolling: true,
+            usePolling: true,
         },
     },
 
@@ -26,6 +25,7 @@ export default defineConfig({
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.tsx'],
             refresh: true,
+
             fonts: [
                 bunny('Instrument Sans', {
                     weights: [400, 500, 600],
@@ -42,9 +42,5 @@ export default defineConfig({
         }),
 
         tailwindcss(),
-
-        wayfinder({
-            formVariants: true,
-        }),
     ],
 });
