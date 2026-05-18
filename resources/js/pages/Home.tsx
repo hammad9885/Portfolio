@@ -64,6 +64,31 @@ export default function Home() {
     useEffect(() => {
         document.body.setAttribute('data-theme', theme);
     }, [theme]);
+
+    useEffect(() => {
+        const box = document.querySelector('.mh-contact-box') as HTMLElement;
+        if (!box) return;
+
+        const handleMouseMove = (e: MouseEvent) => {
+            const rect = box.getBoundingClientRect();
+            box.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+            box.style.setProperty('--my', `${e.clientY - rect.top}px`);
+        };
+
+        const handleMouseLeave = () => {
+            box.style.setProperty('--mx', '50%');
+            box.style.setProperty('--my', '50%');
+        };
+
+        box.addEventListener('mousemove', handleMouseMove);
+        box.addEventListener('mouseleave', handleMouseLeave);
+
+        return () => {
+            box.removeEventListener('mousemove', handleMouseMove);
+            box.removeEventListener('mouseleave', handleMouseLeave);
+        };
+    }, []);
+
     const scrollTo = (id: string) =>
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
@@ -308,7 +333,7 @@ export default function Home() {
                                             />
                                         </span>
                                         {s.label}
-                                    </a>
+                                    </button>
                                 ),
                             )}
                         </div>
