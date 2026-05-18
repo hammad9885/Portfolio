@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import HappyClient from '@/components/HappyClient';
 import Navbar from '@/components/Navbar';
 import SkillSection from '@/components/SkillSection';
+
 import '../../css/Home.css';
 
 const downloadCV = () => {
@@ -67,7 +68,10 @@ export default function Home() {
 
     useEffect(() => {
         const box = document.querySelector('.mh-contact-box') as HTMLElement;
-        if (!box) return;
+        
+        if (!box){ 
+            return;
+        }
 
         const handleMouseMove = (e: MouseEvent) => {
             const rect = box.getBoundingClientRect();
@@ -333,7 +337,7 @@ export default function Home() {
                                             />
                                         </span>
                                         {s.label}
-                                    </button>
+                                    </a>
                                 ),
                             )}
                         </div>
