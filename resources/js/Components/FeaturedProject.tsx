@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-
 import '../../css/FeaturedProject.css';
 
 interface Project {
@@ -36,10 +35,10 @@ const projects: Project[] = [
     {
         num: '03',
         type: 'Enterprise System',
-        title: 'ERP System (Internal Project)',
+        title: 'ERP System',
         description:
             'Business management ERP system for handling operations, workflows, and internal business processes with structured modules.',
-        techs: ['React', 'PHP', 'laravel', 'MySQL'],
+        techs: ['React', 'Laravel', 'MySQL'],
         link: '#',
         github: '#',
     },
@@ -56,7 +55,7 @@ const projects: Project[] = [
     {
         num: '05',
         type: 'Full Stack App',
-        title: 'Business Dashboard System',
+        title: 'Business Dashboard',
         description:
             'Full-stack dashboard application for managing data, users, and business operations with role-based access.',
         techs: ['React', 'Laravel', 'MySQL'],
@@ -66,121 +65,108 @@ const projects: Project[] = [
 ];
 
 const FeaturedProject = () => {
-    const sectionRef = useRef<HTMLElement>(null);
-
-    const [visible, setVisible] = useState(false);
-
-    const [activeProject, setActiveProject] = useState(0);
+    const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+    const [visibleCards, setVisibleCards] = useState<boolean[]>(
+        new Array(projects.length).fill(false),
+    );
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setVisible(true);
-                }
-            },
-            {
-                threshold: 0.1,
-            },
-        );
+        const observers = cardRefs.current.map((el, i) => {
+            if (!el) {
+                return null;
+            }
 
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
-        }
+            const obs = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            setVisibleCards((prev) => {
+                                const next = [...prev];
+                                next[i] = true;
 
-        return () => observer.disconnect();
+                                return next;
+                            });
+                        }, i * 100);
+                        obs.disconnect();
+                    }
+                },
+                { threshold: 0.08 },
+            );
+            obs.observe(el);
+
+            return obs;
+        });
+
+        return () => observers.forEach((o) => o?.disconnect());
     }, []);
 
+    const openLink = (url?: string) => {
+        if (url && url !== '#') {
+            window.open(url, '_blank');
+        }
+    };
+
     return (
-        <section id="projects" ref={sectionRef} className="mh-projects">
-            <p className="mh-section-tag">// selected work</p>
+        <section id="projects" className="fp-section">
+            <div className="fp-header">
+                <p className="fp-tag">// selected work</p>
+                <div className="fp-glow" />
+                <h2 className="fp-title">
+                    Featured
+                    <br />
+                    Projects.
+                </h2>
+            </div>
 
-            <div className="mh-glow-line" />
-
-            <h2 className="mh-section-title">
-                Featured
-                <br />
-                Projects.
-            </h2>
-
-            <div className="mh-projects-wrapper">
-                {/* Sidebar */}
-
-                <div className="mh-project-sidebar">
-                    {projects.map((project, index) => (
-                        <button
-                            key={project.num}
-                            className={`mh-project-tab ${
-                                activeProject === index ? 'active' : ''
-                            }`}
-                            onClick={() => setActiveProject(index)}
-                        >
-                            {project.title}
-                        </button>
-                    ))}
-                </div>
-
-                {/* Content */}
-
-                <div className="mh-project-content">
-                    <div className={`mh-proj-card ${visible ? 'visible' : ''}`}>
-                        <div className="mh-proj-meta">
-                            <span className="mh-proj-num">
-                                {projects[activeProject].num}
-                            </span>
-
-                            <span className="mh-proj-type">
-                                {projects[activeProject].type}
+            <div className="fp-grid">
+                {projects.map((project, i) => (
+                    <div
+                        key={project.num}
+                        ref={(el) => {
+                            cardRefs.current[i] = el;
+                        }}
+                        className={`fp-card ${visibleCards[i] ? 'fp-visible' : ''}`}
+                    >
+                        <div className="fp-card-top">
+                            <span className="fp-num">{project.num}</span>
+                            <span className="fp-type-badge">
+                                {project.type}
                             </span>
                         </div>
 
-                        <h3 className="mh-proj-title">
-                            {projects[activeProject].title}
-                        </h3>
+                        <h3 className="fp-name">{project.title}</h3>
 
-                        <p className="mh-proj-desc">
-                            {projects[activeProject].description}
-                        </p>
+                        <p className="fp-desc">{project.description}</p>
 
-                        <div className="mh-proj-techs">
-                            {projects[activeProject].techs.map((tech) => (
-                                <span key={tech} className="mh-tech-badge">
-                                    {tech}
+                        <div className="fp-techs">
+                            {project.techs.map((t) => (
+                                <span key={t} className="fp-tech">
+                                    {t}
                                 </span>
                             ))}
                         </div>
 
-                        <div className="mh-proj-actions">
+                        <div className="fp-actions">
                             <button
-                                className="mh-proj-link"
-                                onClick={() =>
-                                    projects[activeProject].link &&
-                                    window.open(
-                                        projects[activeProject].link,
-                                        '_blank',
-                                    )
-                                }
+                                className="fp-btn"
+                                onClick={() => openLink(project.link)}
                             >
-                                <i className="ti ti-world" />
+                                <i className="ti ti-world" aria-hidden="true" />
                                 Live Preview
                             </button>
-
                             <button
-                                className="mh-proj-link"
-                                onClick={() =>
-                                    projects[activeProject].github &&
-                                    window.open(
-                                        projects[activeProject].github,
-                                        '_blank',
-                                    )
-                                }
+                                className="fp-btn"
+                                onClick={() => openLink(project.github)}
                             >
-                                <i className="ti ti-brand-github" />
+                                <i
+                                    className="ti ti-brand-github"
+                                    aria-hidden="true"
+                                />
                                 Source Code
                             </button>
                         </div>
                     </div>
-                </div>
+                ))}
             </div>
         </section>
     );
